@@ -955,6 +955,7 @@ body
 .subscribe-mail 
 {
     width: 100%;
+    padding-left: 16px;
 
     background-color: inherit;
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -965,7 +966,7 @@ body
 }
 .subscribe-mail::placeholder
 {
-    padding-left: 16px;
+    
 }
 .subscribe-btn 
 {
@@ -1036,7 +1037,7 @@ body
     
 
     width: 528px;
-    min-height: 581px;
+    height: 581px;
 
     padding-top: 40px;
     padding-bottom: 40px;
@@ -1151,6 +1152,8 @@ body
 {
     margin-bottom: 30px;
 
+    position: relative;
+
     display: flex;
     justify-content: center;
     font-weight: 400;
@@ -1161,6 +1164,11 @@ body
     letter-spacing: var(--main-leter-spacing);
 }
 /*----------END---check-box-item-part-1------------------*/
+.modal-form-list-item:last-child
+{
+    margin-bottom: 0;
+}
+
 .form-item-label
 {
     display: block;
@@ -1172,8 +1180,8 @@ body
     display: flex;
     align-items: center;
 
-    padding-top: 11px;
-    padding-bottom: 11px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     padding-left: 12px;
     padding-right: 12px;
@@ -1190,10 +1198,11 @@ body
     transition-delay: var(--main-delay-time);
 }
 
-.form-item-wrap:hover
+.form-item-wrap:hover, .form-item-wrap:focus-within
 {
     color: var(--main-active-color);
     border-color: var(--main-active-color);
+    cursor: pointer;
 }
 
 /*.form-item-input:focus .form-item-wrap
@@ -1245,13 +1254,21 @@ body
 /*---------check-box-item--part-2-------------*/
 .modal-item-agreement
 {
-    display: none;
+    margin-right: 7px;
+    opacity: 0;
 }
 
 .checkbox-imitation
 {
     color: transparent;
     
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    transform: translate(15px,-50%);
+
     display: flex;
     margin-right: 7px;
     align-items: center;
@@ -1264,6 +1281,11 @@ body
 
     border: 2px solid #212121;
     border-radius: 2px;
+
+    transition-property: color, border-color;
+    transition-duration: var(--main-duration-time);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: var(--main-delay-time);
 }
 
 .checkbox-check-icon
@@ -1275,7 +1297,12 @@ body
 {
     border: transparent;
     color: white;
-    background-color: #2196F3;
+    background-color: var(--main-active-color);
+}
+
+.modal-item-agreement:focus +.agreement-check-label >.checkbox-imitation, .modal-item-agreement:hover +.agreement-check-label >.checkbox-imitation
+{
+    border-color: var(--main-active-color);
 }
 
 /*.agreement-check-label::before

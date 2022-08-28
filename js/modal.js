@@ -10,13 +10,14 @@
     refs.closeModalBtn.addEventListener("click", toggleModal);
     refs.inputPhone.addEventListener("change",clearPhonenumber);
 
+
     function toggleModal() {
         refs.modal.classList.toggle("is-hidden");
-
     }
 
     function clearPhonenumber()
     {
         refs.inputPhone.value=refs.inputPhone.value.replace(/\-|\(|\)/g,"");
     }
+
 })();
